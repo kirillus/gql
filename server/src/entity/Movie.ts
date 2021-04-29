@@ -13,6 +13,6 @@ export class Movie extends BaseEntity {
   title: string;
 
   @Field(() => Int)
-  @Column("int", {default: 60} )
+  @Column("int", {default: 60})
   minutes: number;
 }

@@ -12,7 +12,7 @@ class MovieInput {
 
 @InputType()
 class MovieUpdateInput {
-  @Field(() => String, { nullable: true})
+  @Field(() => String, {nullable: true})
   title?: string;
 
   @Field(() => Int, {nullable: true})
@@ -37,8 +37,7 @@ export class MovieResolver {
   ) {
     // add to database
     //await Movie.insert({title, minutes});
-    const movie = await Movie.create(options).save();
-    return movie;
+    return await Movie.create(options).save();
   }
 
 
@@ -48,7 +47,7 @@ export class MovieResolver {
     @Arg('input', () => MovieUpdateInput) options: MovieUpdateInput
   ) {
     // update movie's title or length
-    await Movie.update({ id }, options);
+    await Movie.update({id}, options);
 
     return true;
   }
